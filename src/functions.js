@@ -35,11 +35,11 @@ var barType = typeof bar;
 var i;
 bar = function (doubleArray) {
 	"use strict";
-	for (i = 0; i < logArray.length; i++) {
+	for (i = 0; i < doubleArray.length; i++) {
 		if (isNaN(doubleArray[i]))
 			return false;
 		else
-			return doubleArray[i] *= 2;
+			doubleArray[i] *= 2;
 	}
 	return true;
 }
@@ -79,7 +79,19 @@ function GitLog(hash, date, message) {
 
 //your code here
 function parseGit(logArray) {
-
+	var results = [];
+	var len = logArray.length;
+	for (var i = 0; i < len; i++) {
+		var log = logArray[i].split(/\s/g, 7);
+		var logHash = log[0];
+		var logDate = new Date(log[1] + " " + log[2] + " " + log[3] + " " + log[4] + " " + log[5] + " " + log[6]);
+		var mess = (/[^"]+(?=")/);
+		var logMessage = logArray[i].replace(mess, '');
+		var logMessage = logMessage.replace(/[\\"]+/g, '');
+		newLog = new GitLog(logHash, logDate, logMessage);
+		results[i] = newLog;
+	}
+	return results;
 }
 
 //end your code
