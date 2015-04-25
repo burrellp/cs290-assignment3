@@ -13,7 +13,9 @@
 */
 
 //your code here
-
+function uselessFunction() {
+	return null;
+}
 //end your code
 
 var bar = 'not a function';
@@ -30,7 +32,17 @@ var barType = typeof bar;
 */
 
 //your code here
-
+var i;
+bar = function (doubleArray) {
+	"use strict";
+	for (i = 0; i < logArray.length; i++) {
+		if (isNaN(doubleArray[i]))
+			return false;
+		else
+			return doubleArray[i] *= 2;
+	}
+	return true;
+}
 //end your code
 
 /**
@@ -66,5 +78,8 @@ function GitLog(hash, date, message) {
 */
 
 //your code here
+function parseGit(logArray) {
+
+}
 
 //end your code
