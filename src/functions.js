@@ -32,10 +32,8 @@ var barType = typeof bar;
 */
 
 //your code here
-var i;
 bar = function (doubleArray) {
-	"use strict";
-	for (i = 0; i < doubleArray.length; i++) {
+	for (var i = 0; i < doubleArray.length; i++) {
 		if (isNaN(doubleArray[i]))
 			return false;
 		else
